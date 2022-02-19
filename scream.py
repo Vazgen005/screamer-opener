@@ -1,6 +1,6 @@
 import requests
-import os
 import winreg
+import os
 
 def get_download_path():
     if os.name == 'nt':
@@ -14,9 +14,10 @@ def get_download_path():
 
 
 url = 'https://cdn.discordapp.com/attachments/811646112163168327/878010354586759188/naike.mp4'
+filename = 'Wtf.mp4'
 r = requests.get(url)
 
-with open(get_download_path() + '/Wtf.mp4', 'wb') as f:
+with open(f'{get_download_path()}/{filename}', 'wb') as f:
     f.write(r.content)
 
-os.startfile(get_download_path() + '/Wtf.mp4')
+os.startfile(f'{get_download_path()}/{filename}')
